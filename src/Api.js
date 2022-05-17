@@ -9,7 +9,7 @@ const api = ({ dispatch }) => (next) => (action) => {
         console.log(data, "data");
         axios({
             // baseURL: "https://jsonplaceholder.typicode.com",
-            baseURL: "http://192.168.43.62:2266",
+            baseURL: "http://192.168.141.54:2266",
             url,
             method,
             data,
@@ -25,7 +25,6 @@ const api = ({ dispatch }) => (next) => (action) => {
                 type: error,
                 payload: err?.response?.data
             });
-            console.log(err, "err");
         });
     }
 }

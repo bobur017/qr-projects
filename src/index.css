@@ -16,3 +16,67 @@
 .canvas{
     width: 200px !important;
 }
+.pageA4{
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    background: rgb(219, 219, 219);
+    padding:20px
+}
+.header{
+    height: 20%;
+}
+.border-flag{
+    border: 10px solid blue !important;
+}
+.pageA{
+    width: 1000px;
+}
+
+.center1{
+    width: 33%;
+}
+
+.left1{
+    width: 33%;
+}
+
+.right1{
+    width: 33%;
+}
+
+.leftBar{
+    width:40px;
+    min-height:100vh !important;
+    height: 100%;
+    background: #2df397;
+    position: absolute;
+    z-index: 9999;
+    transition: 100ms;
+}
+
+.leftBar:hover{
+    width: 100px;
+    background: rgb(45, 243, 151);
+    z-index: 9999;
+}
+.headerMenu{
+    margin-left: 40px;
+}
+.photo{
+    width: 40px;
+    text-align: center;
+}
+.leftBar:hover > .photo{
+    width: 100px;
+}
+.textLine{
+    font-size: small; 
+    display: none;
+    text-decoration: none !important;
+
+}
+
+.leftBar:hover .textLine{
+    display: block;
+}

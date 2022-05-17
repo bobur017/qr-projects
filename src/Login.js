@@ -18,9 +18,12 @@ function Login() {
         if (firstUpdate.current) {
             firstUpdate.current = false;
         } else {
-            history.push(`/insertInfo`);
-            console.log(resultToken);
-            
+            if (resultToken?.success) {
+                history("/insert-info");
+            }
+            localStorage.setItem('Authorization', resultToken.token);
+            localStorage.setItem("role", resultToken?.role);
+            localStorage.setItem("id", resultToken?.id);
         }
     }, [resultToken]);
 
@@ -32,7 +35,6 @@ function Login() {
             toast.error(error?.data);
             toast.error(error?.username);
         }
-        console.log(error, "error");
     }, [error]);
 
     const submitChange = (e) => {
@@ -55,10 +57,10 @@ function Login() {
                                 <Card.Title>KIRISH</Card.Title>
                                 <Form onSubmit={submitChange} id="userForm">
                                     <Form.Label>Login</Form.Label>
-                                    <Form.Control name="login" required minLength={6} />
+                                    <Form.Control name="login" required minLength={5} />
                                     <Form.Label>Parol</Form.Label>
-                                    <Form.Control name="password" required minLength={6} />
-                                    
+                                    <Form.Control name="password" required minLength={8} />
+
                                     <br />
                                     <div className="d-grid gap-2">
                                         <Button type='submit' form="userForm">KIRISH</Button>

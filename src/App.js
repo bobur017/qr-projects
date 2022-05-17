@@ -12,8 +12,8 @@ function App() {
 
   return (
     <div >
-      
-      <Routes path="/">
+
+      <Routes>
         <Route path=":id" element={<QrPage />} />
         <Route path="/" element={<Login />} />
         <Route path="/insert-info/*" element={<Admin />} />

@@ -3,11 +3,9 @@ import { Modal, Button, Form, Table } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import QrPage2 from './QrPage2';
-import { addAnalys, blocked, deleteAnalysis, getAll, getOne } from './QrReducer';
-import logo from "./image/photo_2022.svg"
-import { useNavigate } from 'react-router-dom';
+import { addAnalys, blocked, getAll, getOne } from './QrReducer';
 
-function Admin() {
+function Admin2() {
   const dispatch = useDispatch();
   const result = useSelector(state => state.qr.result);
   const error = useSelector(state => state.qr.error);
@@ -20,7 +18,6 @@ function Admin() {
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
   const firstUpdate = useRef(true);
-  const history = useNavigate();
 
   useEffect(() => {
     if (firstUpdate.current) {
@@ -77,34 +74,15 @@ function Admin() {
     console.log(id);
     handleShow2();
   }
-
   const deleted = (id) => {
     dispatch(blocked({ id }));
   }
 
-  const deleteIs = (id) => {
-    dispatch(deleteAnalysis({ id }));
-  }
-
-  const pushHomePage = () => {
-    // history("/");
-  }
-
   return (
-    <div className='position-relative'>
-
-      <div className='leftBar'>
-        <a href="/" className='photo'  >
-          <img src={logo} alt="" width={"100%"} onClick={pushHomePage} />
-          <span className='textLine'>LIfe line Laboratory</span>
-        </a>
-      </div>
-
-
-
-      <div className='headerMenu'>
+    <div>
+      <>
         <div className='row justify-content-center text-capitalize'>
-          <Button variant="outline-success" onClick={handleShow}>
+          <Button variant="success" onClick={handleShow}>
             Bemorni kiritish
           </Button>
         </div>
@@ -120,8 +98,6 @@ function Admin() {
                 <th>Passport</th>
                 <th>Full Name</th>
                 <th>Birth Date</th>
-                <th>Bloklash</th>
-                <th>Ko'rish</th>
                 <th>Delete</th>
               </tr>
             </thead>
@@ -134,15 +110,9 @@ function Admin() {
                   <td>{item.researchMethod}</td>
                   <td>{item.passport}</td>
                   <td>{item.fullName}</td>
-                  <td>{new Date(item.birthDate).toLocaleDateString()}</td>
-                  <td>
-                    {localStorage.getItem("role") === "ROLE_ADMIN" ?
-                      <> {item?.status ? <Button variant="outline-warning" onClick={() => deleted(item?.uuid)}>Bloklash</Button> : <Button variant="outline-success" onClick={() => deleted(item?.uuid)}>Faollashtirish</Button>}</>
-                      : null
-                    }
-                  </td>
+                  <td>{item.birthDate}</td>
+                  <td>{item?.status ? <Button variant="outline-danger" onClick={() => deleted(item?.uuid)}>Bloklash</Button> : <Button variant="outline-success" onClick={() => deleted(item?.uuid)}>Faollashtirish</Button>}</td>
                   <td><Button variant="outline-info" onClick={() => wiev(item?.uuid)}>Ko'rish</Button></td>
-                  <td>{localStorage.getItem("role") === "ROLE_ADMIN" ? <Button variant="outline-danger" onClick={() => deleteIs(item?.uuid)}>O'chirish</Button> : null}</td>
                 </tr>
               )}
             </tbody>
@@ -170,7 +140,7 @@ function Admin() {
               <Form.Label>Sex / Пол :</Form.Label>
               <Form.Select name={'sex'} type="text" required >
                 <option value="Male / Мужчина">Male / Мужчина</option>
-                <option value="Female / Женщина">Female / Женщина</option>
+                <option value="Female / Женщина">Female / Жунщина</option>
               </Form.Select>
               <Form.Label>Test result and date / Результат и дата теста : </Form.Label>
               <Form.Select name={'result'} type="text" required  >
@@ -192,7 +162,7 @@ function Admin() {
             </Button>
           </Modal.Footer>
         </Modal>
-      </div>
+      </>
       <>
         <Modal show={show2} size="xl" onHide={handleClose2}>
           <Modal.Header closeButton>
@@ -212,4 +182,4 @@ function Admin() {
   )
 }
 
-export default Admin
+export default Admin2;
