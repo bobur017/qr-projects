@@ -48,7 +48,7 @@ function QrPage() {
             <div className='leftBar'>
                 <a href="/" className='photo'  >
                     <img src={logo} alt="" width={"100%"} />
-                    <span className='textLine'>LIfe line Laboratory</span>
+                    <span className='textLine text-decoration-none'>LIfe line Laboratory</span>
                 </a>
             </div>
 
@@ -59,8 +59,8 @@ function QrPage() {
                 <div className='content pageA' ref={componentRef}>
                     <div className='row'>
                         <div className='col-12'>
-                            <div className="card border-flag pt-2 px-2 pb-1 pt-lg-5 px-lg-5 pb-lg-2 m-5">
-                                <div className="d-flex mb-5 ">
+                            <div className="card border-flag pt-0 px-4 pb-1 pt-lg-5 px-lg-5 pb-lg-2 m-5">
+                                <div className="d-flex mb-5 mt-3">
                                     <div className="left1 text-center">
                                         <h5>Ministry of Health of the Republic of Uzbekistan</h5>
                                         <h5>CONFIRMATION OF COVID-19 TEST RESULT</h5>
@@ -76,66 +76,60 @@ function QrPage() {
                                     </div>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
+                                    <h6>
                                         <strong>ID / Номер: </strong>
                                         <span>{resultAnalis?.id}</span>
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
-                                        <strong>Laboratory (name) / Лаборатория (название):
-                                        </strong>
-                                        <span>{resultAnalis?.laboratoryName}</span>
-                                    </h5>
+                                    <h6>
+                                        <strong>Laboratory (name) / Лаборатория (название): </strong>
+                                        <span className='text-uppercase'>{resultAnalis?.laboratoryName}</span>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
-                                        <strong>Place of sampling / Место забора анализа
-                                            : </strong>
-                                        <span>{resultAnalis?.placeOfSampling}</span>
-                                    </h5>
+                                    <h6>
+                                        <strong>Place of sampling / Место забора анализа: </strong>
+                                        <span className='text-uppercase'>{resultAnalis?.placeOfSampling}</span>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
+                                    <h6>
                                         <strong>Research method / Метод исследования: </strong>
                                         <span>{resultAnalis?.researchMethod}</span>
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <hr style={{ border: "4px solid #bbb" }} />
                                 <div className="my-1">
-                                    <h5>
+                                    <h6>
                                         <strong>Passport / Серия и номер паспорта: </strong>
                                         <span>{resultAnalis?.passport}</span>
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
-                                        <strong>Full name / Полное имя
-                                            : </strong>
+                                    <h6>
+                                        <strong>Full name / Полное имя: </strong>
                                         <span>{resultAnalis?.fullName}</span>
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
-                                        <strong>Birth date / Дата рождения
-                                            : </strong>
+                                    <h6>
+                                        <strong>Birth date / Дата рождения: </strong>
                                         <span>{resultAnalis?.birthDate !== undefined ? new Date(resultAnalis?.birthDate).toISOString().substring(0, 10) : null}</span>
 
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
-                                        <strong>Sex / Пол
-                                            : </strong>
+                                    <h6>
+                                        <strong>Sex / Пол: </strong>
                                         <span>
                                             Female / Женщина
                                         </span>
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <div className="my-1">
-                                    <h5>
-                                        <strong>Analysis date / Дата сдачи анализа
-                                            : </strong>
+                                    <h6>
+                                        <strong>Analysis date / Дата сдачи анализа: </strong>
                                         <span>{resultAnalis?.analysisDate !== undefined ?
                                             <>
                                                 {new Date(resultAnalis?.analysisDate).toISOString().substring(0, 10)}
@@ -144,14 +138,13 @@ function QrPage() {
 
                                             </>
                                             : null}</span>
-                                    </h5>
+                                    </h6>
                                 </div>
                                 <div className="my-1 d-flex align-items-baseline">
-                                    <h5 className="mr-2">
-                                        <strong>Test result and date / Результат и дата теста
-                                            : </strong>
-                                    </h5>
-                                    <h4>
+                                    <h6 className="mr-2">
+                                        <strong>Test result and date / Результат и дата теста:&nbsp;</strong>
+                                    </h6>
+                                    <h6>
                                         <span>{resultAnalis?.result}</span>
                                         <strong>({resultAnalis?.resultDate !== undefined ?
                                             <>
@@ -161,13 +154,13 @@ function QrPage() {
 
                                             </>
                                             : null})</strong>
-                                    </h4>
+                                    </h6>
                                 </div>
                                 <div className="row my-2">
 
                                     <div className="text-center">
                                         {/* <div id="qrContainer" className="w-100"><canvas width="256" height="256"></canvas></div> */}
-                                        <img src={"data:image/png;base64," + resultAnalis?.qrCode} width="350" height="350" />
+                                        <img src={"data:image/png;base64," + resultAnalis?.qrCode} width="300" height="300" />
                                     </div>
 
                                 </div>

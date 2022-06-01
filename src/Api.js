@@ -9,7 +9,7 @@ const api = ({ dispatch }) => (next) => (action) => {
         console.log(data, "data");
         axios({
             // baseURL: "https://jsonplaceholder.typicode.com",
-            baseURL: "http://192.168.141.54:2266",
+            baseURL: "http://192.168.250.54:2266",
             url,
             method,
             data,

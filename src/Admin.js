@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import QrPage2 from './QrPage2';
 import { addAnalys, blocked, deleteAnalysis, getAll, getOne } from './QrReducer';
-import logo from "./image/photo_2022.svg"
+import logo from "./image/logo.png"
 import { useNavigate } from 'react-router-dom';
 
 function Admin() {
